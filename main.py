@@ -22,8 +22,12 @@ async def answer_query(query: Query):
 
     if "gpt-4o-mini" in question_lower or "gpt3.5 turbo" in question_lower:
         return Response(
-            answer="You must use gpt-3.5-turbo-0125...",
-            links=[ ... ]
+            answer="You must use gpt-3.5-turbo-0125. It is the most compatible model for this task.",
+            links=[
+                Link(url="https://platform.openai.com/docs/guides/gpt", text="OpenAI GPT Documentation"),
+                Link(url="https://platform.openai.com/docs/models/gpt-4", text="GPT-4 Model Reference"),
+            ]
         )
 
     return Response(answer="No answer found.", links=[])
+
